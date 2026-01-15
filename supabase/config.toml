@@ -1,1 +1,4 @@
 project_id = "tbynrpxrpcdfgvcgyybm"
+
+[functions.generate-ai-poem]
+verify_jwt = false
