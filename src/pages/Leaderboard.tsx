@@ -1,10 +1,14 @@
 import { Header } from '@/components/Header';
 import { LeaderboardCard } from '@/components/LeaderboardCard';
-import { Trophy } from 'lucide-react';
+import { Trophy, Loader2 } from 'lucide-react';
+import { useLeaderboard } from '@/hooks/useLeaderboard';
 
 export default function Leaderboard() {
-  // Placeholder data - will be populated from database
-  const mockLeaders: any[] = [];
+  const { leaders: dayLeaders, loading: dayLoading, error: dayError } = useLeaderboard('day');
+  const { leaders: weekLeaders, loading: weekLoading } = useLeaderboard('week');
+  const { leaders: monthLeaders, loading: monthLoading } = useLeaderboard('month');
+
+  const isLoading = dayLoading || weekLoading || monthLoading;
 
   return (
     <div className="min-h-screen">
@@ -15,12 +19,39 @@ export default function Leaderboard() {
           <h1 className="font-display text-3xl font-bold mb-2">Leaderboard</h1>
           <p className="text-muted-foreground">Celebrating the best poets of Alfaaz</p>
         </div>
-        
-        <div className="grid md:grid-cols-3 gap-6">
-          <LeaderboardCard title="Poet of the Day" type="day" leaders={mockLeaders} />
-          <LeaderboardCard title="Poet of the Week" type="week" leaders={mockLeaders} />
-          <LeaderboardCard title="Poet of the Month" type="month" leaders={mockLeaders} />
-        </div>
+
+        {dayError && (
+          <div className="text-center py-8 text-destructive">
+            {dayError}
+          </div>
+        )}
+
+        {isLoading ? (
+          <div className="flex justify-center py-12">
+            <Loader2 className="h-8 w-8 animate-spin text-primary" />
+          </div>
+        ) : (
+          <div className="grid md:grid-cols-3 gap-6">
+            <LeaderboardCard 
+              title="Poet of the Day" 
+              type="day" 
+              leaders={dayLeaders}
+              loading={dayLoading}
+            />
+            <LeaderboardCard 
+              title="Poet of the Week" 
+              type="week" 
+              leaders={weekLeaders}
+              loading={weekLoading}
+            />
+            <LeaderboardCard 
+              title="Poet of the Month" 
+              type="month" 
+              leaders={monthLeaders}
+              loading={monthLoading}
+            />
+          </div>
+        )}
       </main>
     </div>
   );

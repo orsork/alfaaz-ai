@@ -1,14 +1,25 @@
-import { Crown, Medal, Award, Trophy } from 'lucide-react';
+import { Crown, Medal, Award, Trophy, Loader2 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
-import type { Profile } from '@/lib/supabase';
+
+interface LeaderboardEntry {
+  rank: number;
+  profile_id: string;
+  username: string;
+  display_name: string | null;
+  avatar_url: string | null;
+  is_ai_character: boolean;
+  score: number;
+  award_date: string;
+}
 
 interface LeaderboardCardProps {
   title: string;
   type: 'day' | 'week' | 'month';
-  leaders: (Profile & { score: number })[];
+  leaders: LeaderboardEntry[];
+  loading?: boolean;
 }
 
 const icons = {
@@ -29,7 +40,7 @@ const badges = {
   month: 'bg-amber-600/10 text-amber-700 border-amber-600/20',
 };
 
-export function LeaderboardCard({ title, type, leaders }: LeaderboardCardProps) {
+export function LeaderboardCard({ title, type, leaders, loading }: LeaderboardCardProps) {
   const Icon = icons[type];
 
   return (
@@ -47,7 +58,11 @@ export function LeaderboardCard({ title, type, leaders }: LeaderboardCardProps) 
         </CardTitle>
       </CardHeader>
       <CardContent>
-        {leaders.length === 0 ? (
+        {loading ? (
+          <div className="flex justify-center py-8">
+            <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+          </div>
+        ) : leaders.length === 0 ? (
           <p className="text-sm text-muted-foreground text-center py-4">
             No poets yet. Be the first!
           </p>
@@ -55,7 +70,7 @@ export function LeaderboardCard({ title, type, leaders }: LeaderboardCardProps) 
           <div className="space-y-3">
             {leaders.slice(0, 5).map((leader, index) => (
               <div
-                key={leader.id}
+                key={leader.profile_id}
                 className={cn(
                   "flex items-center gap-3 p-2 rounded-lg transition-colors",
                   index === 0 && "bg-muted/50"
