@@ -122,6 +122,411 @@ All colors MUST be HSL.
     --sidebar-border: 20 15% 20%;
     --sidebar-ring: 25 80% 60%;
   }
+
+  /* ============================================
+     OCEAN THEME (Light)
+     ============================================ */
+  [data-theme="ocean"] {
+    --background: 200 30% 97%;
+    --foreground: 210 40% 10%;
+    --card: 200 25% 99%;
+    --card-foreground: 210 40% 10%;
+    --popover: 200 25% 99%;
+    --popover-foreground: 210 40% 10%;
+    --primary: 200 75% 50%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 175 60% 40%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 190 25% 90%;
+    --muted-foreground: 210 20% 45%;
+    --accent: 185 70% 55%;
+    --accent-foreground: 210 40% 10%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 195 25% 85%;
+    --input: 195 25% 88%;
+    --ring: 200 75% 50%;
+    --radius: 0.75rem;
+    --gradient-saffron: linear-gradient(135deg, hsl(200, 75%, 50%) 0%, hsl(185, 70%, 55%) 100%);
+    --gradient-burgundy: linear-gradient(135deg, hsl(175, 60%, 40%) 0%, hsl(180, 55%, 45%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(200, 30%, 97%) 0%, hsl(190, 25%, 94%) 100%);
+    --gradient-paper: linear-gradient(145deg, hsl(200, 25%, 99%) 0%, hsl(195, 30%, 95%) 100%);
+    --shadow-soft: 0 4px 20px -4px hsl(200 50% 30% / 0.12);
+    --shadow-card: 0 8px 32px -8px hsl(200 50% 30% / 0.15);
+    --shadow-elevated: 0 16px 48px -12px hsl(200 50% 30% / 0.2);
+    --sidebar-background: 200 25% 95%;
+    --sidebar-foreground: 210 40% 20%;
+    --sidebar-primary: 200 75% 50%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 190 25% 90%;
+    --sidebar-accent-foreground: 210 40% 20%;
+    --sidebar-border: 195 25% 85%;
+    --sidebar-ring: 200 75% 50%;
+  }
+
+  /* ============================================
+     OCEAN THEME (Dark)
+     ============================================ */
+  [data-theme="ocean"].dark {
+    --background: 215 35% 8%;
+    --foreground: 200 20% 95%;
+    --card: 215 30% 12%;
+    --card-foreground: 200 20% 95%;
+    --popover: 215 30% 12%;
+    --popover-foreground: 200 20% 95%;
+    --primary: 200 70% 60%;
+    --primary-foreground: 215 35% 8%;
+    --secondary: 175 50% 45%;
+    --secondary-foreground: 200 20% 95%;
+    --muted: 215 25% 18%;
+    --muted-foreground: 200 15% 65%;
+    --accent: 185 60% 55%;
+    --accent-foreground: 215 35% 10%;
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 215 20% 20%;
+    --input: 215 20% 20%;
+    --ring: 200 70% 60%;
+    --gradient-saffron: linear-gradient(135deg, hsl(200, 70%, 55%) 0%, hsl(185, 60%, 50%) 100%);
+    --gradient-burgundy: linear-gradient(135deg, hsl(175, 50%, 40%) 0%, hsl(180, 45%, 50%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(215, 35%, 8%) 0%, hsl(215, 30%, 12%) 100%);
+    --gradient-paper: linear-gradient(145deg, hsl(215, 30%, 12%) 0%, hsl(215, 25%, 15%) 100%);
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --shadow-card: 0 8px 32px -8px hsl(0 0% 0% / 0.4);
+    --shadow-elevated: 0 16px 48px -12px hsl(0 0% 0% / 0.5);
+    --sidebar-background: 215 30% 10%;
+    --sidebar-foreground: 200 20% 90%;
+    --sidebar-primary: 200 70% 60%;
+    --sidebar-primary-foreground: 215 35% 8%;
+    --sidebar-accent: 215 25% 18%;
+    --sidebar-accent-foreground: 200 20% 90%;
+    --sidebar-border: 215 20% 20%;
+    --sidebar-ring: 200 70% 60%;
+  }
+
+  /* ============================================
+     FOREST THEME (Light)
+     ============================================ */
+  [data-theme="forest"] {
+    --background: 130 25% 96%;
+    --foreground: 140 30% 10%;
+    --card: 130 30% 99%;
+    --card-foreground: 140 30% 10%;
+    --popover: 130 30% 99%;
+    --popover-foreground: 140 30% 10%;
+    --primary: 140 50% 40%;
+    --primary-foreground: 130 30% 98%;
+    --secondary: 25 45% 45%;
+    --secondary-foreground: 130 30% 98%;
+    --muted: 120 20% 90%;
+    --muted-foreground: 140 20% 45%;
+    --accent: 100 45% 50%;
+    --accent-foreground: 140 30% 10%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 30 25% 85%;
+    --input: 30 25% 88%;
+    --ring: 140 50% 40%;
+    --radius: 0.75rem;
+    --gradient-saffron: linear-gradient(135deg, hsl(140, 50%, 40%) 0%, hsl(100, 45%, 50%) 100%);
+    --gradient-burgundy: linear-gradient(135deg, hsl(25, 45%, 40%) 0%, hsl(30, 50%, 45%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(130, 25%, 96%) 0%, hsl(120, 20%, 94%) 100%);
+    --gradient-paper: linear-gradient(145deg, hsl(130, 30%, 99%) 0%, hsl(125, 25%, 95%) 100%);
+    --shadow-soft: 0 4px 20px -4px hsl(140 50% 30% / 0.12);
+    --shadow-card: 0 8px 32px -8px hsl(140 50% 30% / 0.15);
+    --shadow-elevated: 0 16px 48px -12px hsl(140 50% 30% / 0.2);
+    --sidebar-background: 130 20% 95%;
+    --sidebar-foreground: 140 30% 20%;
+    --sidebar-primary: 140 50% 40%;
+    --sidebar-primary-foreground: 130 30% 98%;
+    --sidebar-accent: 120 20% 90%;
+    --sidebar-accent-foreground: 140 30% 20%;
+    --sidebar-border: 30 25% 85%;
+    --sidebar-ring: 140 50% 40%;
+  }
+
+  /* ============================================
+     FOREST THEME (Dark)
+     ============================================ */
+  [data-theme="forest"].dark {
+    --background: 140 25% 8%;
+    --foreground: 130 25% 95%;
+    --card: 140 30% 12%;
+    --card-foreground: 130 25% 95%;
+    --popover: 140 30% 12%;
+    --popover-foreground: 130 25% 95%;
+    --primary: 140 45% 50%;
+    --primary-foreground: 140 25% 8%;
+    --secondary: 25 40% 50%;
+    --secondary-foreground: 130 25% 95%;
+    --muted: 140 20% 18%;
+    --muted-foreground: 130 20% 65%;
+    --accent: 100 40% 55%;
+    --accent-foreground: 140 25% 10%;
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 140 15% 20%;
+    --input: 140 15% 20%;
+    --ring: 140 45% 50%;
+    --gradient-saffron: linear-gradient(135deg, hsl(140, 45%, 45%) 0%, hsl(100, 40%, 50%) 100%);
+    --gradient-burgundy: linear-gradient(135deg, hsl(25, 40%, 40%) 0%, hsl(30, 45%, 45%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(140, 25%, 8%) 0%, hsl(140, 20%, 12%) 100%);
+    --gradient-paper: linear-gradient(145deg, hsl(140, 30%, 12%) 0%, hsl(140, 25%, 15%) 100%);
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --shadow-card: 0 8px 32px -8px hsl(0 0% 0% / 0.4);
+    --shadow-elevated: 0 16px 48px -12px hsl(0 0% 0% / 0.5);
+    --sidebar-background: 140 25% 10%;
+    --sidebar-foreground: 130 25% 90%;
+    --sidebar-primary: 140 45% 50%;
+    --sidebar-primary-foreground: 140 25% 8%;
+    --sidebar-accent: 140 20% 18%;
+    --sidebar-accent-foreground: 130 25% 90%;
+    --sidebar-border: 140 15% 20%;
+    --sidebar-ring: 140 45% 50%;
+  }
+
+  /* ============================================
+     SUNSET THEME (Light)
+     ============================================ */
+  [data-theme="sunset"] {
+    --background: 25 35% 97%;
+    --foreground: 350 30% 10%;
+    --card: 25 45% 99%;
+    --card-foreground: 350 30% 10%;
+    --popover: 25 45% 99%;
+    --popover-foreground: 350 30% 10%;
+    --primary: 350 70% 55%;
+    --primary-foreground: 25 45% 98%;
+    --secondary: 280 45% 45%;
+    --secondary-foreground: 25 45% 98%;
+    --muted: 30 30% 92%;
+    --muted-foreground: 350 20% 45%;
+    --accent: 35 85% 55%;
+    --accent-foreground: 350 30% 10%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 25 25% 88%;
+    --input: 25 25% 90%;
+    --ring: 350 70% 55%;
+    --radius: 0.75rem;
+    --gradient-saffron: linear-gradient(135deg, hsl(350, 70%, 55%) 0%, hsl(35, 85%, 55%) 100%);
+    --gradient-burgundy: linear-gradient(135deg, hsl(280, 45%, 40%) 0%, hsl(290, 50%, 45%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(25, 35%, 97%) 0%, hsl(30, 30%, 94%) 100%);
+    --gradient-paper: linear-gradient(145deg, hsl(25, 45%, 99%) 0%, hsl(28, 35%, 95%) 100%);
+    --shadow-soft: 0 4px 20px -4px hsl(350 50% 30% / 0.12);
+    --shadow-card: 0 8px 32px -8px hsl(350 50% 30% / 0.15);
+    --shadow-elevated: 0 16px 48px -12px hsl(350 50% 30% / 0.2);
+    --sidebar-background: 25 30% 96%;
+    --sidebar-foreground: 350 30% 20%;
+    --sidebar-primary: 350 70% 55%;
+    --sidebar-primary-foreground: 25 45% 98%;
+    --sidebar-accent: 30 30% 92%;
+    --sidebar-accent-foreground: 350 30% 20%;
+    --sidebar-border: 25 25% 88%;
+    --sidebar-ring: 350 70% 55%;
+  }
+
+  /* ============================================
+     SUNSET THEME (Dark)
+     ============================================ */
+  [data-theme="sunset"].dark {
+    --background: 355 30% 8%;
+    --foreground: 25 30% 95%;
+    --card: 355 35% 12%;
+    --card-foreground: 25 30% 95%;
+    --popover: 355 35% 12%;
+    --popover-foreground: 25 30% 95%;
+    --primary: 350 65% 60%;
+    --primary-foreground: 355 30% 8%;
+    --secondary: 280 40% 50%;
+    --secondary-foreground: 25 30% 95%;
+    --muted: 355 25% 18%;
+    --muted-foreground: 25 20% 65%;
+    --accent: 35 80% 55%;
+    --accent-foreground: 355 30% 10%;
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 355 20% 20%;
+    --input: 355 20% 20%;
+    --ring: 350 65% 60%;
+    --gradient-saffron: linear-gradient(135deg, hsl(350, 65%, 55%) 0%, hsl(35, 80%, 50%) 100%);
+    --gradient-burgundy: linear-gradient(135deg, hsl(280, 40%, 45%) 0%, hsl(290, 45%, 50%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(355, 30%, 8%) 0%, hsl(355, 25%, 12%) 100%);
+    --gradient-paper: linear-gradient(145deg, hsl(355, 35%, 12%) 0%, hsl(355, 30%, 15%) 100%);
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --shadow-card: 0 8px 32px -8px hsl(0 0% 0% / 0.4);
+    --shadow-elevated: 0 16px 48px -12px hsl(0 0% 0% / 0.5);
+    --sidebar-background: 355 30% 10%;
+    --sidebar-foreground: 25 30% 90%;
+    --sidebar-primary: 350 65% 60%;
+    --sidebar-primary-foreground: 355 30% 8%;
+    --sidebar-accent: 355 25% 18%;
+    --sidebar-accent-foreground: 25 30% 90%;
+    --sidebar-border: 355 20% 20%;
+    --sidebar-ring: 350 65% 60%;
+  }
+
+  /* ============================================
+     MIDNIGHT THEME (Light)
+     ============================================ */
+  [data-theme="midnight"] {
+    --background: 230 25% 97%;
+    --foreground: 230 35% 10%;
+    --card: 230 30% 99%;
+    --card-foreground: 230 35% 10%;
+    --popover: 230 30% 99%;
+    --popover-foreground: 230 35% 10%;
+    --primary: 230 70% 55%;
+    --primary-foreground: 230 30% 98%;
+    --secondary: 270 50% 45%;
+    --secondary-foreground: 230 30% 98%;
+    --muted: 240 20% 92%;
+    --muted-foreground: 230 20% 45%;
+    --accent: 260 60% 65%;
+    --accent-foreground: 230 35% 10%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 230 25% 85%;
+    --input: 230 25% 88%;
+    --ring: 230 70% 55%;
+    --radius: 0.75rem;
+    --gradient-saffron: linear-gradient(135deg, hsl(230, 70%, 55%) 0%, hsl(260, 60%, 65%) 100%);
+    --gradient-burgundy: linear-gradient(135deg, hsl(270, 50%, 40%) 0%, hsl(275, 55%, 45%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(230, 25%, 97%) 0%, hsl(240, 20%, 95%) 100%);
+    --gradient-paper: linear-gradient(145deg, hsl(230, 30%, 99%) 0%, hsl(235, 25%, 95%) 100%);
+    --shadow-soft: 0 4px 20px -4px hsl(230 50% 30% / 0.12);
+    --shadow-card: 0 8px 32px -8px hsl(230 50% 30% / 0.15);
+    --shadow-elevated: 0 16px 48px -12px hsl(230 50% 30% / 0.2);
+    --sidebar-background: 230 20% 96%;
+    --sidebar-foreground: 230 35% 20%;
+    --sidebar-primary: 230 70% 55%;
+    --sidebar-primary-foreground: 230 30% 98%;
+    --sidebar-accent: 240 20% 92%;
+    --sidebar-accent-foreground: 230 35% 20%;
+    --sidebar-border: 230 25% 85%;
+    --sidebar-ring: 230 70% 55%;
+  }
+
+  /* ============================================
+     MIDNIGHT THEME (Dark)
+     ============================================ */
+  [data-theme="midnight"].dark {
+    --background: 230 35% 6%;
+    --foreground: 230 25% 95%;
+    --card: 230 40% 10%;
+    --card-foreground: 230 25% 95%;
+    --popover: 230 40% 10%;
+    --popover-foreground: 230 25% 95%;
+    --primary: 230 65% 60%;
+    --primary-foreground: 230 35% 6%;
+    --secondary: 270 45% 50%;
+    --secondary-foreground: 230 25% 95%;
+    --muted: 230 30% 15%;
+    --muted-foreground: 230 20% 65%;
+    --accent: 260 55% 65%;
+    --accent-foreground: 230 35% 8%;
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 230 25% 18%;
+    --input: 230 25% 18%;
+    --ring: 230 65% 60%;
+    --gradient-saffron: linear-gradient(135deg, hsl(230, 65%, 55%) 0%, hsl(260, 55%, 60%) 100%);
+    --gradient-burgundy: linear-gradient(135deg, hsl(270, 45%, 45%) 0%, hsl(275, 50%, 50%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(230, 35%, 6%) 0%, hsl(230, 30%, 10%) 100%);
+    --gradient-paper: linear-gradient(145deg, hsl(230, 40%, 10%) 0%, hsl(230, 35%, 12%) 100%);
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.4);
+    --shadow-card: 0 8px 32px -8px hsl(0 0% 0% / 0.5);
+    --shadow-elevated: 0 16px 48px -12px hsl(0 0% 0% / 0.6);
+    --sidebar-background: 230 35% 5%;
+    --sidebar-foreground: 230 25% 90%;
+    --sidebar-primary: 230 65% 60%;
+    --sidebar-primary-foreground: 230 35% 6%;
+    --sidebar-accent: 230 30% 15%;
+    --sidebar-accent-foreground: 230 25% 90%;
+    --sidebar-border: 230 25% 18%;
+    --sidebar-ring: 230 65% 60%;
+  }
+
+  /* ============================================
+     LAVENDER THEME (Light)
+     ============================================ */
+  [data-theme="lavender"] {
+    --background: 270 20% 97%;
+    --foreground: 270 30% 10%;
+    --card: 270 25% 99%;
+    --card-foreground: 270 30% 10%;
+    --popover: 270 25% 99%;
+    --popover-foreground: 270 30% 10%;
+    --primary: 270 55% 60%;
+    --primary-foreground: 270 25% 98%;
+    --secondary: 340 45% 50%;
+    --secondary-foreground: 270 25% 98%;
+    --muted: 265 20% 92%;
+    --muted-foreground: 270 20% 45%;
+    --accent: 320 55% 65%;
+    --accent-foreground: 270 30% 10%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 270 20% 85%;
+    --input: 270 20% 88%;
+    --ring: 270 55% 60%;
+    --radius: 0.75rem;
+    --gradient-saffron: linear-gradient(135deg, hsl(270, 55%, 60%) 0%, hsl(320, 55%, 65%) 100%);
+    --gradient-burgundy: linear-gradient(135deg, hsl(340, 45%, 45%) 0%, hsl(345, 50%, 50%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(270, 20%, 97%) 0%, hsl(265, 20%, 94%) 100%);
+    --gradient-paper: linear-gradient(145deg, hsl(270, 25%, 99%) 0%, hsl(267, 22%, 96%) 100%);
+    --shadow-soft: 0 4px 20px -4px hsl(270 50% 30% / 0.12);
+    --shadow-card: 0 8px 32px -8px hsl(270 50% 30% / 0.15);
+    --shadow-elevated: 0 16px 48px -12px hsl(270 50% 30% / 0.2);
+    --sidebar-background: 270 15% 96%;
+    --sidebar-foreground: 270 30% 20%;
+    --sidebar-primary: 270 55% 60%;
+    --sidebar-primary-foreground: 270 25% 98%;
+    --sidebar-accent: 265 20% 92%;
+    --sidebar-accent-foreground: 270 30% 20%;
+    --sidebar-border: 270 20% 85%;
+    --sidebar-ring: 270 55% 60%;
+  }
+
+  /* ============================================
+     LAVENDER THEME (Dark)
+     ============================================ */
+  [data-theme="lavender"].dark {
+    --background: 275 30% 6%;
+    --foreground: 270 20% 95%;
+    --card: 275 35% 10%;
+    --card-foreground: 270 20% 95%;
+    --popover: 275 35% 10%;
+    --popover-foreground: 270 20% 95%;
+    --primary: 270 50% 65%;
+    --primary-foreground: 275 30% 6%;
+    --secondary: 340 40% 55%;
+    --secondary-foreground: 270 20% 95%;
+    --muted: 275 25% 15%;
+    --muted-foreground: 270 15% 65%;
+    --accent: 320 50% 65%;
+    --accent-foreground: 275 30% 8%;
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 270 20% 18%;
+    --input: 270 20% 18%;
+    --ring: 270 50% 65%;
+    --gradient-saffron: linear-gradient(135deg, hsl(270, 50%, 60%) 0%, hsl(320, 50%, 60%) 100%);
+    --gradient-burgundy: linear-gradient(135deg, hsl(340, 40%, 50%) 0%, hsl(345, 45%, 55%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(275, 30%, 6%) 0%, hsl(275, 25%, 10%) 100%);
+    --gradient-paper: linear-gradient(145deg, hsl(275, 35%, 10%) 0%, hsl(275, 30%, 12%) 100%);
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --shadow-card: 0 8px 32px -8px hsl(0 0% 0% / 0.4);
+    --shadow-elevated: 0 16px 48px -12px hsl(0 0% 0% / 0.5);
+    --sidebar-background: 275 30% 5%;
+    --sidebar-foreground: 270 20% 90%;
+    --sidebar-primary: 270 50% 65%;
+    --sidebar-primary-foreground: 275 30% 6%;
+    --sidebar-accent: 275 25% 15%;
+    --sidebar-accent-foreground: 270 20% 90%;
+    --sidebar-border: 270 20% 18%;
+    --sidebar-ring: 270 50% 65%;
+  }
 }
 
 @layer base {
