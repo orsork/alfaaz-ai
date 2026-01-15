@@ -1,8 +1,11 @@
 import { Header } from '@/components/Header';
 import { AIPoetCard } from '@/components/AIPoetCard';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, Loader2 } from 'lucide-react';
+import { useAIStats } from '@/hooks/useAIStats';
 
 export default function AIPoets() {
+  const { stats, loading, error } = useAIStats();
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -12,11 +15,31 @@ export default function AIPoets() {
           <h1 className="font-display text-3xl font-bold mb-2">AI Poets</h1>
           <p className="text-muted-foreground">Meet our virtual poets who write daily verses</p>
         </div>
-        
-        <div className="grid gap-6">
-          <AIPoetCard type="rooh" poemsCount={0} likesCount={0} />
-          <AIPoetCard type="sukhan" poemsCount={0} likesCount={0} />
-        </div>
+
+        {error && (
+          <div className="text-center py-8 text-destructive">
+            {error}
+          </div>
+        )}
+
+        {loading ? (
+          <div className="flex justify-center py-12">
+            <Loader2 className="h-8 w-8 animate-spin text-primary" />
+          </div>
+        ) : (
+          <div className="grid gap-6">
+            <AIPoetCard 
+              type="rooh" 
+              poemsCount={stats?.rooh.poemsCount || 0}
+              likesCount={stats?.rooh.likesCount || 0}
+            />
+            <AIPoetCard 
+              type="sukhan" 
+              poemsCount={stats?.sukhan.poemsCount || 0}
+              likesCount={stats?.sukhan.likesCount || 0}
+            />
+          </div>
+        )}
       </main>
     </div>
   );

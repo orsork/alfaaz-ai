@@ -1,13 +1,17 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Feather, Menu, X, User, Trophy, LogOut } from 'lucide-react';
+import { Feather, Menu, X, User, Trophy, LogOut, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/hooks/useAuth';
+import { useTheme, THEMES } from '@/hooks/useTheme';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuSubContent,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -15,6 +19,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user, profile, signOut } = useAuth();
+  const { theme, themeMode, setTheme, toggleThemeMode, mounted } = useTheme();
   const location = useLocation();
 
   const navItems = [
@@ -24,6 +29,8 @@ export function Header() {
   ];
 
   const isActive = (href: string) => location.pathname === href;
+
+  if (!mounted) return null;
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-xl">
@@ -56,8 +63,60 @@ export function Header() {
           ))}
         </nav>
 
-        {/* Auth Buttons / Profile */}
-        <div className="flex items-center gap-3">
+        {/* Right Side: Theme Toggle & Auth */}
+        <div className="flex items-center gap-2">
+          {/* Theme Toggle Button */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleThemeMode}
+            className="h-9 w-9"
+            title={themeMode === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+          >
+            {themeMode === 'light' ? (
+              <Moon className="h-4 w-4" />
+            ) : (
+              <Sun className="h-4 w-4" />
+            )}
+          </Button>
+
+          {/* Theme Selector */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="sm" className="hidden md:flex h-9 px-2 gap-1">
+                <span className="text-sm">
+                  {THEMES.find(t => t.value === theme)?.icon || '☀️'}
+                </span>
+                <span className="text-xs text-muted-foreground hidden lg:inline">
+                  {THEMES.find(t => t.value === theme)?.label || 'Theme'}
+                </span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-56">
+              <div className="px-2 py-1.5 text-xs font-medium text-muted-foreground">
+                Choose Theme
+              </div>
+              <DropdownMenuSeparator />
+              {THEMES.map((t) => (
+                <DropdownMenuItem
+                  key={t.value}
+                  onClick={() => setTheme(t.value)}
+                  className="flex items-center gap-2 cursor-pointer"
+                >
+                  <span className="text-base">{t.icon}</span>
+                  <div className="flex flex-col">
+                    <span className="text-sm font-medium">{t.label}</span>
+                    <span className="text-xs text-muted-foreground">{t.description}</span>
+                  </div>
+                  {theme === t.value && (
+                    <span className="ml-auto text-primary">✓</span>
+                  )}
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          {/* Auth / Profile */}
           {user ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -148,9 +207,41 @@ export function Header() {
                 {item.name}
               </Link>
             ))}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="w-full justify-start gap-2">
+                  <span>{THEMES.find(t => t.value === theme)?.icon || '☀️'}</span>
+                  <span>{THEMES.find(t => t.value === theme)?.label || 'Theme'}</span>
+                  <span className="ml-auto text-muted-foreground">
+                    {themeMode === 'light' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+                  </span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-56">
+                <div className="px-2 py-1.5 text-xs font-medium text-muted-foreground">
+                  Choose Theme
+                </div>
+                <DropdownMenuSeparator />
+                {THEMES.map((t) => (
+                  <DropdownMenuItem
+                    key={t.value}
+                    onClick={() => {
+                      setTheme(t.value);
+                      setMobileMenuOpen(false);
+                    }}
+                    className="flex items-center gap-2 cursor-pointer"
+                  >
+                    <span className="text-base">{t.icon}</span>
+                    <span className="text-sm font-medium">{t.label}</span>
+                    {theme === t.value && <span className="ml-auto text-primary">✓</span>}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
         </div>
       )}
     </header>
   );
 }
+

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import type { Poem, Profile, PoemReaction } from '@/lib/supabase';
 import { useAuth } from './useAuth';
@@ -18,7 +18,6 @@ export function usePoems() {
         *,
         profiles (*)
       `)
-      .order('likes_count', { ascending: false })
       .order('created_at', { ascending: false });
 
     if (error) {
@@ -78,6 +77,42 @@ export function usePoems() {
       supabase.removeChannel(channel);
     };
   }, []);
+
+  /**
+   * Calculate a score for ranking poems using Hacker News-style algorithm
+   * Score = (likes - dislikes) / (time_since_posted + 2)^gravity
+   * 
+   * This creates a feed that:
+   * - Newer poems appear higher
+   * - More engagement (likes - dislikes) pushes poems up
+   * - Older poems slowly decay in ranking
+   */
+  const rankedPoems = useMemo(() => {
+    const gravity = 1.8;
+    const now = Date.now();
+
+    return [...poems].sort((a, b) => {
+      const scoreA = calculatePoemScore(a, now, gravity);
+      const scoreB = calculatePoemScore(b, now, gravity);
+      return scoreB - scoreA;
+    });
+  }, [poems]);
+
+  /**
+   * Calculate the ranking score for a poem
+   */
+  function calculatePoemScore(poem: Poem, now: number, gravity: number): number {
+    const score = (poem.likes_count || 0) - (poem.dislikes_count || 0);
+    
+    if (score <= 0) return 0;
+
+    // Calculate hours since posting
+    const poemTime = new Date(poem.created_at).getTime();
+    const hoursSincePosted = Math.max(0.1, (now - poemTime) / (1000 * 60 * 60));
+    
+    // Apply gravity decay
+    return score / Math.pow(hoursSincePosted + 2, gravity);
+  }
 
   const createPoem = async (title: string, content: string, language: 'hindi' | 'english') => {
     if (!profile) {
@@ -159,7 +194,7 @@ export function usePoems() {
   };
 
   return {
-    poems,
+    poems: rankedPoems,
     loading,
     userReactions,
     createPoem,
