@@ -11,6 +11,7 @@ import Leaderboard from "./pages/Leaderboard";
 import AIPoets from "./pages/AIPoets";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
+import { IndianFlag } from "@/components/IndianFlag";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,15 @@ const App = () => (
               <Route path="/profile" element={<Profile />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
+            {/* Footer with Indian Flag */}
+            <footer className="border-t border-border/40 bg-background/80 backdrop-blur-xl mt-auto">
+              <div className="container flex flex-col sm:flex-row items-center justify-center gap-3 py-4 px-4">
+                <IndianFlag className="h-6 w-auto rounded-sm shadow-sm" />
+                <span className="text-sm text-muted-foreground font-medium">
+                  Made by Aditi in India 🇮🇳
+                </span>
+              </div>
+            </footer>
           </BrowserRouter>
         </TooltipProvider>
       </ThemeProvider>
